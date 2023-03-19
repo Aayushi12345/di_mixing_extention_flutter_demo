@@ -4,6 +4,8 @@ import 'package:di_mixing_app/employee.dart';
 import 'package:di_mixing_app/secnd_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'generated/l10n.dart';
+
 class FirstScreen extends StatelessWidget {
   const FirstScreen({Key? key}) : super(key: key);
 
@@ -12,7 +14,9 @@ class FirstScreen extends StatelessWidget {
     AllAnimal allAnimal = AllAnimal();
     return Scaffold(
       appBar: AppBar(
-        title: Text("FIrst Sreen"),
+        title:   Text(S.of(context).title),
+
+        // title: Text("FIrst Sreen"),
         backgroundColor: Colors.blue,
         
       ),

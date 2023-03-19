@@ -1,10 +1,8 @@
 import 'package:di_mixing_app/di/locator.dart';
 import 'package:di_mixing_app/first_screen.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_gen/gen';
-// import 'package:di_mixing_app/generated/l10n.dart';
-
-// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:di_mixing_app/generated/l10n.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 
 void main() {
@@ -19,9 +17,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      localizationsDelegates:  [
+      onGenerateTitle: (context) {
+        return S.of(context).title;
+      },
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
         // S.de
         ],
+      supportedLocales: S.delegate.supportedLocales,
+
       title: 'Di Demo',
       theme: ThemeData(
 
